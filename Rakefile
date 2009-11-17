@@ -5,12 +5,14 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "gridfs-rackdav"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = "GridFS resource adapter for RackDAV"
+    gem.description = "gridfs-rackdav enables you to use GridFS as backend for WebDAV collections with RackDAV application"
     gem.email = "konjevic@gmail.com"
     gem.homepage = "http://github.com/retro/gridfs-rackdav"
     gem.authors = ["Mihael Konjević"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_dependency('georgi-rack_dav', '>= 0.1.1')
+    gem.add_dependency('mongodb-mongo', '>= 0.1')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
