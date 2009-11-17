@@ -65,7 +65,7 @@ module GridFSRackDAV
     def get_file_contents
       GridStore.open(@connection, self.path, 'r') { |f| f.read }
     end
-    def write(file_contents = '__DIR__')
+    def write(file_contents = '')
       filename = ('/' + self.path).gsub(/\/+/, '/')
       GridStore.open(@connection, filename, 'w') do |f|
         f.content_type = MIME::Types.type_for(filename).first.to_s
