@@ -7,8 +7,8 @@ module GridFSRackDAV
     attr_reader :root
 
     def initialize(resource_path, options)
-      @@connection = options[:connection]
-      @collection = @@connection.collection('fs.files')
+      @connection = options[:connection]
+      @collection = @connection.collection('fs.files')
       self.root = options[:root]
       self.path = resource_path
     end
@@ -63,11 +63,11 @@ module GridFSRackDAV
     end
 
     def get_file_contents
-      GridStore.open(@@connection, self.path, 'r') { |f| f.read }
+      GridStore.open(@connection, self.path, 'r') { |f| f.read }
     end
     def write(file_contents = '__DIR__')
       filename = ('/' + self.path).gsub(/\/+/, '/')
-      GridStore.open(@@connection, filename, 'w') do |f|
+      GridStore.open(@connection, filename, 'w') do |f|
         f.content_type = MIME::Types.type_for(filename).first.to_s
         f.metadata = {
           :ctime => Time.now.to_i,
