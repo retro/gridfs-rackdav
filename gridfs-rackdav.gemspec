@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/retro/gridfs-rackdav}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.4}
+  s.rubygems_version = %q{1.3.5}
   s.summary = %q{GridFS resource adapter for RackDAV}
   s.test_files = [
     "spec/gridfs-rackdav_spec.rb",
