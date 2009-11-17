@@ -69,6 +69,7 @@ module GridFSRackDAV
       filename = ('/' + self.path).gsub(/\/+/, '/')
       GridStore.open(@connection, filename, 'w') do |f|
         f.content_type = MIME::Types.type_for(filename).first.to_s
+        f.content_type = 'text/html' if f.content_type.empty?
         f.metadata = {
           :ctime => Time.now.to_i,
           :mtime => Time.now.to_i
