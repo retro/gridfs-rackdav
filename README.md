@@ -32,6 +32,10 @@ Use simple rackup script for serving files from GridFS
       :resource_class => GridFSRackDAV::GridFSResource
     })
 
+## Specs
+
+GridFS-RackDAV resource passes all of original specs that are included with RackDAV project.
+
 ## Copyright
 
 Copyright (c) 2009 Mihael Konjević. See LICENSE for details.
