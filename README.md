@@ -1,5 +1,5 @@
 ---
-title: GridFS-RackDAV - Mongo GridFS resource for RackDAV
+GridFS-RackDAV - Mongo GridFS resource for RackDAV
 ---
 
 ## Install
