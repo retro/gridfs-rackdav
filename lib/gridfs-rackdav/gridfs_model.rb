@@ -3,14 +3,14 @@ module GridFSRackDAV
     include Mongo
     include GridFS
 
-    attr_reader :path, :collection
-    attr_reader :root
+    attr_reader :path, :collection, :root, :options
 
     def initialize(resource_path, options)
       @connection = options[:connection]
       @collection = @connection.collection('fs.files')
       self.root = options[:root]
       self.path = resource_path
+      @options = options
     end
     def path=(path)
       @path = ('/' + path).gsub(/\/+/, '/').strip
@@ -57,7 +57,7 @@ module GridFSRackDAV
     def children
       if self.collection? && !item.nil?
         @collection.find({:filename => /^(#{Regexp.escape(self.item['filename'])})[^\/]+(\/?)$/}).map do |c|
-          self.class.new(c['filename'], root)
+          self.class.new(c['filename'], options)
         end
       end
     end
