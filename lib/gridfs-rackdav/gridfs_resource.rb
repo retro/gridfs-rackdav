@@ -1,6 +1,6 @@
 module GridFSRackDAV
   class GridFSResource < RackDAV::Resource
-    attr_reader :gridfs_model, :root
+    attr_reader :gridfs_model
     
     DIR_FILE = "<tr><td class='name'><a href='%s'>%s</a></td><td class='size'>%s</td><td class='type'>%s</td><td class='mtime'>%s</td></tr>"
     
@@ -100,10 +100,11 @@ module GridFSRackDAV
     # HTTP GET request.
     #
     # Write the content of the resource to the response.body.
+    # TODO: Write test for get method for collections
     def get(request, response)
       if @gridfs_model.collection?
         files = []
-        if @gridfs_model.path != root + '/'
+        if @gridfs_model.path != @options[:root] + '/'
           files << DIR_FILE % [@gridfs_model.path_without_root.split('/')[0..-2].join('/') + "/", '../', "", "", ""]
         end
         @gridfs_model.children.each do |f|
