@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
+     "gridfs-rackdav.gemspec",
      "lib/gridfs-rackdav.rb",
      "lib/gridfs-rackdav/gridfs_model.rb",
      "lib/gridfs-rackdav/gridfs_resource.rb",
